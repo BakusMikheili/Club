@@ -1,0 +1,68 @@
+1. `<meta charset="UTF-8" />`
+   რას ნიშნავს: `<meta>` ელემენტს ებითი `/` აქვს.
+   რატომ მოხდა: `<meta>` არის void element — მას არ ჰყავს დამხურავი ტეგი და XHTML-ის ჩასაკეცი სლაშიც არ არის საჭირო HTML-ში.
+   როგორ გავასწორო: `<meta charset="UTF-8">`
+
+2. `<meta name="viewport" ... />`
+   რას ნიშნავს: viewport-ის `<meta>` ტეგსაც лишებითი trailing slash აქვს.
+   რატომ მოხდა: იგივე მიზეზით `<meta>` void element არის.
+   როგორ გავასწორო: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+3. favicon-ის `<link />`
+   რას ნიშნავს: `<link>` ელემენტსაც ებითი სლაში აქვს.
+   რატომ მოხდა: `<link>` void element-ია; ის სხვა ელემენტის შიგთავსს არ ინახავს და HTML-ში არ იხურება ცალკე დამხურავი ტეგით.
+   როგორ გავასწორო: `<link rel="icon" type="image/svg+xml" href="images/favicon.svg">`
+
+4. Google Fonts-ის პირველი `<link />`
+   რას ნიშნავს: preconnect-ის `<link>` ტეგის ბოლო სლაში лишებითია.
+   როგორ გავასწორო: `<link rel="preconnect" href="https://fonts.googleapis.com">`
+
+5. Google Fonts-ის მეორე `<link />`
+   რას ნიშნავს: preconnect-ის მეორე `<link>` ტეგშიც лишებითი trailing slash არის.
+   როგორ გავასწორო: `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`
+
+6. stylesheet-ის მრავალხაზიანი `<link />`
+   რას ნიშნავს: მრავალხაზიან `<link>` ტეგის Closing line (`/>`) лишნი slash-ს შეიცავს.
+   რატომ მოხდა: `<link>` HTML-ში void elementა და Closing სლაში არ ამატებს სემანტიკას.
+   როგორ გავასწორო: შესასრულებელი ხაზი `<link>` წაიყვანოთ `<link>` დან და გამოდეთ `>`-ზე, ანუ:
+   ```html
+   <link
+     href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@700;800&display=swap"
+     rel="stylesheet"
+   >
+   ```
+
+7. local stylesheet-ის `<link />`
+   რას ნიშნავს: style.css-ის `<link>` ტეგსაც лишებითი სლაში აქვს.
+   როგორ გავასწორო: `<link rel="stylesheet" href="style.css">`
+
+8–11. PC, ტურნირების, VIP და ფასების `<img />`
+   რას ნიშნავს: ოთხივე `<img>` ტეგს trailing slash აქვს.
+   რატომ მოხდა: `<img>` void elementა — არ აქვს `</img>` და slash არ არის საჭირო.
+   როგორ გავასწორო:
+   ```html
+   <img src="images/pc.jpg" alt="გეიმინგ კომპიუტერი">
+   <img src="images/tournament.webp" alt="ტურნირი">
+   <img src="images/vip.jpg" alt="VIP ოთახი">
+   <img src="images/price.png" alt="ფასები">
+   ```
+
+12. პირველი `<hr />`
+   რას ნიშნავს: `<hr />` არის HTML-ის void element `<hr>` და лишებითია self-closing სლაში.
+   რატომ მოხდა: Slash `/>` არ არის `<hr>` ელემენტის დამხურავი ფორმა HTML-ში.
+   როგორ გავასწორო: `<hr>`
+
+13. `<br />`
+   რას ნიშნავს: ხაზის გადატანა `<br />` არის void element, ამიტომ სლაში лишებითია.
+   რატომ მოხდა: HTML-ში `<br>` არ საჭიროებს დახურვას ან self-closing `/`.
+   როგორ გავასწორო: `ადგილები შეზღუდულია.<br>`
+
+14. მეორე `<hr />`
+   რას ნიშნავს: მეორე `<hr />` ეხდება იგივე Void element-შეცდომას, როგორც პირველ `hr`-ს.
+   როგორ გავასწორო: `<hr>`
+
+საერთოდ:
+- ეს არის „Info“, არა fatal HTML-ის შეცდომა.
+- HTML-ის void ელემენტებია `<meta>`, `<link>`, `<img>`, `<hr>` და `<br>`.
+- მათ არ აქვთ closing tag, ამიტომ HTML-ის სტანდარტული ჩანაწერით სლაშის წერა არ უნდა: `/>`.
+- გვერდის HTML-ში ამ სლაშების ყველა instance უნდა შეიცვალოს `>` ნიშნით.

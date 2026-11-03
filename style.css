@@ -1,0 +1,144 @@
+/*
+  საიტი: GameZone - კომპიუტერული კლუბი
+  ფონტები:
+    1) body - DejaVu Sans (გადმოწერილი, fonts საქაღალდეში, @font-face-ით)
+    2) h1 - Noto Sans Georgian (Google Fonts-ის ბმულით)
+  ორივე ფონტს აქვს ქართული ასოები.
+*/
+
+/*  ფონტების დაკავშირება  */
+@font-face {
+  font-family: "MyFont";
+  src: url("fonts/DejaVuSans.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "MyFont";
+  src: url("fonts/DejaVuSans-Bold.ttf");
+  font-weight: 700;
+}
+
+/*  საერთო სტილები  */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "MyFont", Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #222222;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: "Noto Sans Georgian", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+}
+
+h2,
+h3 {
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+ul,
+ol {
+  margin-left: 25px;
+  margin-bottom: 15px;
+}
+
+hr {
+  margin: 25px 0;
+}
+
+/*  ჰედერი  */
+.header {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  text-align: center;
+  padding: 30px;
+}
+
+/*  მენიუ  */
+.menu {
+  background-color: #16213e;
+  text-align: center;
+  padding: 15px;
+}
+
+.menu > a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 18px;
+}
+
+.menu > a:hover {
+  color: #e94560;
+}
+
+/*  მთავარი ნაწილი  */
+main {
+  padding: 20px;
+}
+
+/* ბარათები */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards > .card {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.btn {
+  background-color: #e94560;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #c0334d;
+}
+
+/* ვიდეო და რუკა */
+video,
+.map {
+  max-width: 100%;
+}
+
+/*  ფუთერი  */
+.footer {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px;
+}
